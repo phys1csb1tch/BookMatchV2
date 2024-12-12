@@ -29,7 +29,7 @@ export function menuVisitante() {
                 Usuario.cadastroUsuario();
                 break;
             case 3: 
-                acervo(); //  fazer no Acervo
+                acervo();
                 break;
             case 4:
                 console.log("Saindo.")
@@ -42,7 +42,7 @@ export function menuVisitante() {
     }
 }
 
-export function acervo(){
+export function acervo(){ // TRETA NO MENU COMO SEMPRE
     console.clear;
     const prompt = promptSync()
     console.log("Bem vinde ao Acervo BookMatch!")
