@@ -1,6 +1,6 @@
 import promptSync from "prompt-sync";
 import { Usuario } from "../Classes/Usuario";
-import { Livro } from "../Classes/Livro";
+import { acervo } from "./acervo";
 
 export function menuVisitante() {
     const prompt = promptSync();
@@ -8,9 +8,8 @@ export function menuVisitante() {
     let controle = true;
 
     while(controle){
-        console.clear()
         console.log ("Bem vinde ao BookMatch!")
-        console.log (" 1. Login \n 2. Registre-se \n 3. Listar Acervo \n 4. Sair")
+        console.log (" 1. Login \n 2. Registre-se \n 3. Acervo \n 4. Sair")
         const opcao = Number(prompt ("Escolha uma opção: "))
 
         
@@ -29,7 +28,7 @@ export function menuVisitante() {
                 Usuario.cadastroUsuario();
                 break;
             case 3: 
-                acervo();
+                acervo(); // não tá listando acervo
                 break;
             case 4:
                 console.log("Saindo.")
@@ -39,30 +38,5 @@ export function menuVisitante() {
                 console.error ("Opção não reconhecida.")
                 break;
         }
-    }
-}
-
-export function acervo(){ // TRETA NO MENU COMO SEMPRE
-    console.clear;
-    const prompt = promptSync()
-    console.log("Bem vinde ao Acervo BookMatch!")
-    console.log("1. Listar Todo Acervo")
-    console.log("2. Buscar no Acervo")
-    console.log("3. Sair do acervo")
-    const opcao = Number(prompt("Escolha uma opção: "))
-
-    switch (opcao) {
-        case 1: 
-            console.log("Exibindo Acervo")
-            Livro.exibirAcervo()
-            break;
-        case 2:
-            console.log ("Busca")
-            break;
-        case 3:
-            console.log("Saindo")
-        default: 
-            console.log("Entrada inválida.")
-            break;
     }
 }

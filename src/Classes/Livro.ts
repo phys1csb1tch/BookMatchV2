@@ -1,7 +1,7 @@
 import { Genero } from "./Genero";
 
 export class Livro {
-    protected static contadorID : number;
+    protected static contadorID : number = 0;
     protected idLivro: number;
     protected nomeLivro: string;
     protected autor: string;
@@ -21,9 +21,7 @@ export class Livro {
         this.edicao=edicao;
         this.disponivel=true;
         this.dataPublicacao=dataPublicacao;
-
-        //cadastra livro
-
+        Livro.listaLivros.push(this)
     }
 
     procuraLivroNome(nome: string): string[] {

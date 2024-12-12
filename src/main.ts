@@ -3,12 +3,13 @@ import { Admin } from "./Classes/Admin";
 import { Genero } from "./Classes/Genero";
 import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
-import { menuVisitante } from "./menus/menuVisitante";
+import { menuVisitante } from "./utils/menuVisitante";
+import { acervo } from "./utils/acervo";
 const prompt = promptSync();
 
 // menu principal
 const newAdmin = new Admin ("admin", "admin")
-menuVisitante();
+
 
 // Usuário: Minha conta (alterar dados) | Ver minhas locações | Listar Acervo (filtros) | Sair
 // Admin: Minha conta (alterar dados) | Locações | Gerenciar Usuários (filtros) | Listar Acervo (filtros) | Sair
@@ -27,6 +28,7 @@ const generoDrama = new Genero("Drama");
 const generoPolicial = new Genero("Policial");
 const generoComedia = new Genero("Comédia");
 
+// --------------- INSTANCIANDO LIVROS -----------------------------
 const livro1 = new Livro("O Guia do Mochileiro das Galáxias", "Douglas Adams", [generoFiccao], "", "", new Date(1979, 0, 1))
 const livro2 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", [generoFantasia],  "", "", new Date(1954, 6, 29));
 const livro3 = new Livro("Drácula", "Bram Stoker", [generoTerror], "", "", new Date(1897, 4, 26));
@@ -40,9 +42,10 @@ const livro10 = new Livro("O Corvo", "Edgar Allan Poe", [generoTerror], "", "", 
 const livro11 = new Livro("A Comédia Humana", "Honoré de Balzac", [generoComedia], "", "", new Date(1842, 3, 1));
 const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "", new Date(2007, 2, 1));
 
-
+menuVisitante();
 // -------------- TESTES -------------------
 // const newUsuario = new Usuario ("Jade", "028", "aqui", "123")
 // newUsuario.exibir();
 // newAdmin.exibir();
-Livro
+// Livro.exibirAcervo();
+// acervo()
