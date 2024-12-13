@@ -4,10 +4,10 @@ import { Genero } from "./Classes/Genero";
 import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
 import { menuVisitante } from "./utils/menuVisitante";
-import { acervo } from "./utils/acervo";
+import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
-// menu principal
+// ------------ INSTANCIANDO USUARIOS -----------------
 const newAdmin = new Admin ("admin", "admin")
 
 
@@ -49,3 +49,5 @@ menuVisitante();
 // newAdmin.exibir();
 // Livro.exibirAcervo();
 // acervo()
+
+// buscaAcervo();

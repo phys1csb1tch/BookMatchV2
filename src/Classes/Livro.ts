@@ -24,15 +24,26 @@ export class Livro {
         Livro.listaLivros.push(this)
     }
 
-    procuraLivroNome(nome: string): string[] {
-        return Livro.listaLivros.filter((el) => el.nomeLivro === nome).map((el) => el.exibirLivro()) // exibir
+    static procuraLivroNome(nome: string): string[] {
+        const normalizado = nome.toLowerCase().trim();
+        return Livro.listaLivros.filter((el) => el.nomeLivro.toLowerCase().includes(normalizado)).map((el) => Livro.exibirLivro(el))
     }
 
-    exibirLivro(): string {
-        return `ID: ${this.idLivro} Nome: ${this.nomeLivro} Autor: ${this.autor} Gêneros: Editora: ${this.edicao} Edição: ${this.edicao}`
+    static exibirLivro(livro: Livro): string {
+        return `ID: ${livro.idLivro} Nome: ${livro.nomeLivro} Autor: ${livro.autor} Gêneros: ${livro.generos.map(el => el.nomeGenero).join(", ")} Editora: ${livro.edicao} Edição: ${livro.edicao}`
     }
 
     static exibirAcervo(){
-        Livro.listaLivros.forEach((el) => console.log(el.exibirLivro()))
+        Livro.listaLivros.forEach((el) => console.log(Livro.exibirLivro(el)))
+    }
+
+    static procuraLivroAutor(autor: string): string[]{
+        const normalizado = autor.toLowerCase().trim();
+        return Livro.listaLivros.filter((el) => el.autor.toLowerCase().includes(normalizado)).map((el) => Livro.exibirLivro(el))
+    }
+
+    static procuraLivroGenero (genero: string): string[]{
+        const normalizado = genero.toLowerCase().trim();
+        return Livro.listaLivros.filter((el) => el.generos.some((g) => g.nomeGenero.toLowerCase().includes(normalizado))).map((el) => Livro.exibirLivro(el))
     }
 }

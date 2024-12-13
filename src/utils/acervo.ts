@@ -21,6 +21,7 @@ export function acervo(){
                 break;
             case 2:
                 console.log ("Busca")
+                buscaAcervo();
                 break;
             case 3:
                 console.log("Saindo");
@@ -32,3 +33,76 @@ export function acervo(){
         }
     }
 }
+
+export function buscaAcervo(){
+    const prompt = promptSync()
+    let controle = true;
+    while(controle){
+        console.log("1. Busca por título")
+        console.log("2. Busca por autor")
+        console.log("3. Busca por gênero")
+        console.log("4. Sair")
+        let opcao = Number(prompt ("Escolha uma opção: "))
+
+        switch (opcao){
+            case 1:
+                console.log("Busca por título")
+                var busca = prompt ("Entre com a palavra-chave: ")
+                if (!busca){
+                    console.error("Nenhuma palavra-chave foi inserida.")
+                } else {
+                    let saida = Livro.procuraLivroNome(busca)
+                    if (saida.length > 0 ){
+                        console.log("Livros Encontrados: ");
+                        saida.forEach((el) => console.log(el))
+                    } else {
+                        console.log("Nenhum livro encontrado.")
+                    }
+                }
+                break;
+            case 2:
+                console.log("Busca por autor")
+                var busca = prompt ("Entre com a palavra-chave: ")
+                if (!busca){
+                    console.error("Nenhuma palavra-chave foi inserida.")
+                } else {
+                    let saida = Livro.procuraLivroAutor(busca)
+                    if (saida.length > 0){
+                        console.log("Livros encontrados: ")
+                        saida.forEach((el) => console.log(el))
+                    } else {
+                        console.log("Nenhum livro foi encontrado.")
+                    }
+                }
+                break;
+            case 3:
+                console.log("Busca por gênero")
+                var busca = prompt ("Entre com a palavra-chave: ")
+                if (!busca){
+                    console.error("Nenhuma palavra-chave foi inserida.")
+                } else {
+                    let saida = Livro.procuraLivroGenero(busca)
+                    if (saida.length > 0){
+                        console.log("Livros encontrados: ")
+                        saida.forEach((el) => console.log(el))
+                    } else {
+                        console.log("Nenhum livro foi encontrado.")
+                    }
+                }
+                break;
+            case 4:
+                console.log("Saindo...");
+                controle = false;
+                break;
+            default:
+                console.log("Opção inválida.")
+                break;
+        }
+    }
+}
+/////// MENU DE BUSCA
+/** por nome
+ * por genero
+ * por autor
+ * 
+ */

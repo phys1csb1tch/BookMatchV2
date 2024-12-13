@@ -1,12 +1,12 @@
 export class Genero {
     protected static contadorID: number=1;
     protected idGenero: number;
-    protected nomeGenero: string;
+    protected _nomeGenero: string;
     protected static listaGeneros: Genero[]=[];
 
     constructor (nomeGenero: string){
         this.idGenero=Genero.contadorID++;
-        this.nomeGenero=nomeGenero;
+        this._nomeGenero=nomeGenero;
         
         this.cadastraGeneros
     }
@@ -23,5 +23,8 @@ export class Genero {
             Genero.listaGeneros.push(this)
             return "Novo gênero cadastrado!"
         }
+    }
+    get nomeGenero(): string {
+        return this._nomeGenero;
     }
 }

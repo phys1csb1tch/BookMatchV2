@@ -1,6 +1,6 @@
 import promptSync from "prompt-sync";
 import { Usuario } from "../Classes/Usuario";
-import { acervo } from "../utils/acervo";
+import { acervo, buscaAcervo } from "../utils/acervo";
 
 export function menuVisitante() {
     const prompt = promptSync();
