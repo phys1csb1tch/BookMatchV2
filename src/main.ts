@@ -4,6 +4,7 @@ import { Genero } from "./Classes/Genero";
 import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
 import { menuVisitante } from "./menus/menuVisitante";
+import { menuUsuario } from "./menus/menuUsuario";
 // import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
@@ -43,12 +44,12 @@ const livro10 = new Livro("O Corvo", "Edgar Allan Poe", [generoTerror], "", "", 
 const livro11 = new Livro("A Comédia Humana", "Honoré de Balzac", [generoComedia], "", "", new Date(1842, 3, 1));
 const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "", new Date(2007, 2, 1));
 
- menuVisitante();
+//menuVisitante();
 // Usuario.listaUsuarios.forEach((el) => console.log(el))
 // -------------- TESTES -------------------
 // newUsuario.exibir();
 // newAdmin.exibir();
 // Livro.exibirAcervo();
 // acervo()
-
 // buscaAcervo();
+ menuUsuario("jadeusa");

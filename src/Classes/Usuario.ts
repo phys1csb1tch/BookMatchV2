@@ -1,23 +1,23 @@
 
 export class Usuario {
-    protected verificaAdmin: boolean = false; // verificador de se o Usuário é admin ou não
+    protected _verificaAdmin: boolean = false; // verificador de se o Usuário é admin ou não
     static listaUsuarios: Usuario[]=[]; // Array que armazena os usuários
     protected static contadorID: number = 1 //Contador auto-incrementado estático 
     protected id: number;
     protected nome: string;
-    protected userName: string;
+    protected _userName: string;
     protected cpf: string;
     protected endereco: string;
     protected senha: string;
 
     constructor (userName:string, nome: string, cpf: string, endereco: string, senha: string, verificaAdmin: boolean = false){
         this.id=Usuario.contadorID++ // incrementa em 1 a cada instancia de Usuário
-        this.userName=userName;
+        this._userName=userName;
         this.nome=nome;
         this.cpf=cpf;
         this.endereco=endereco;
         this.senha=senha;
-        this.verificaAdmin=verificaAdmin;
+        this._verificaAdmin=verificaAdmin;
         this.registrar();
        
     }
@@ -55,5 +55,17 @@ export class Usuario {
    
         // Cria o novo usuário e registra
         const novoUsuario = new Usuario(userName, nome, cpf, endereco, senha, false); // erro: já existe usuario cadastrado nesse cpf 
+    }
+    get userName(): string{
+        return this._userName
+    }
+    get verificaAdmin(): boolean{
+        return this._verificaAdmin
+    }
+
+    exibirParaUsuario(){
+        console.log(`Nome: ${this.nome}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`Nome de Usuário: ${this._userName}`)
     }
 }

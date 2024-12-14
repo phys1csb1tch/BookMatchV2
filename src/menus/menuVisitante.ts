@@ -1,6 +1,8 @@
 import promptSync from "prompt-sync";
 import { Usuario } from "../Classes/Usuario";
-import { acervo, buscaAcervo } from "../utils/acervo";
+import { acervo } from "../utils/acervo";
+import { menuAdmin } from "./menuAdmin";
+import { menuUsuario } from "./menuUsuario";
 
 export function menuVisitante() {
     const prompt = promptSync();
@@ -21,7 +23,14 @@ export function menuVisitante() {
                 const senhaLogin = prompt ("Senha: ")
                 console.log(Usuario.login (userNameLogin, senhaLogin));
 
-                //acho q aqui chama ou menu admin ou menu usuario
+                /**
+                 * lógica: pega userNameLogin e puxa o objeto;
+                 * objeto.testaAdmin ? menu admin : menu usuario
+                 */
+                const usuarioEncontrado = Usuario.listaUsuarios.find((el) => el.userName === userNameLogin);
+                if (usuarioEncontrado){
+                    (usuarioEncontrado).verificaAdmin? menuAdmin(userNameLogin) : menuUsuario(userNameLogin);
+                }
                 break;
             case 2:
                 console.log("Registro")
