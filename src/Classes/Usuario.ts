@@ -68,4 +68,11 @@ export class Usuario {
         console.log(`CPF: ${this.cpf}`)
         console.log(`Nome de Usuário: ${this._userName}`)
     }
+
+    trocasenha(senhaAntiga: string, novaSenha: string){
+        const senhaAtual = prompt ("Senha atual: ")
+        if (senhaAtual===this.senha){
+            // ba me perdi real
+        }
+    }
 }
