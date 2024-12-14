@@ -3,12 +3,13 @@ import { Admin } from "./Classes/Admin";
 import { Genero } from "./Classes/Genero";
 import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
-import { menuVisitante } from "./utils/menuVisitante";
-import { acervo, buscaAcervo } from "./utils/acervo";
+import { menuVisitante } from "./menus/menuVisitante";
+// import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
 // ------------ INSTANCIANDO USUARIOS -----------------
 const newAdmin = new Admin ("admin", "admin")
+const newUsuario = new Usuario ("jadeusa", "Jade", "028", "aqui", "123", false )
 
 
 // Usuário: Minha conta (alterar dados) | Ver minhas locações | Listar Acervo (filtros) | Sair
@@ -42,9 +43,9 @@ const livro10 = new Livro("O Corvo", "Edgar Allan Poe", [generoTerror], "", "", 
 const livro11 = new Livro("A Comédia Humana", "Honoré de Balzac", [generoComedia], "", "", new Date(1842, 3, 1));
 const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "", new Date(2007, 2, 1));
 
-menuVisitante();
+ menuVisitante();
+// Usuario.listaUsuarios.forEach((el) => console.log(el))
 // -------------- TESTES -------------------
-// const newUsuario = new Usuario ("Jade", "028", "aqui", "123")
 // newUsuario.exibir();
 // newAdmin.exibir();
 // Livro.exibirAcervo();

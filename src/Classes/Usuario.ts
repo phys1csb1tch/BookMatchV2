@@ -18,11 +18,11 @@ export class Usuario {
         this.endereco=endereco;
         this.senha=senha;
         this.verificaAdmin=verificaAdmin;
-        this.registrarUsuario();
+        this.registrar();
        
     }
 
-    private registrarUsuario(){
+    private registrar(){
         if (Usuario.listaUsuarios.find((el) => el.cpf === this.cpf)){
             console.log("Já existe um usuário cadastrado com este cpf.")
         } else {
