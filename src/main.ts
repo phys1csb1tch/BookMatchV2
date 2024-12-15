@@ -5,6 +5,7 @@ import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
 import { menuVisitante } from "./menus/menuVisitante";
 import { menuUsuario } from "./menus/menuUsuario";
+import { minhaContaUsuario } from "./utils/minhaContaUsuario";
 // import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
@@ -52,4 +53,5 @@ const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "",
 // Livro.exibirAcervo();
 // acervo()
 // buscaAcervo();
- menuUsuario("jadeusa");
+//menuUsuario("jadeusa");
+minhaContaUsuario("jadeusa")

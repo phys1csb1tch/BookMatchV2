@@ -46,4 +46,5 @@ export class Livro {
         const normalizado = genero.toLowerCase().trim();
         return Livro.listaLivros.filter((el) => el.generos.some((g) => g.nomeGenero.toLowerCase().includes(normalizado))).map((el) => Livro.exibirLivro(el))
     }
+
 }

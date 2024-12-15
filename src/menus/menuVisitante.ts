@@ -23,13 +23,9 @@ export function menuVisitante() {
                 const senhaLogin = prompt ("Senha: ")
                 console.log(Usuario.login (userNameLogin, senhaLogin));
 
-                /**
-                 * lógica: pega userNameLogin e puxa o objeto;
-                 * objeto.testaAdmin ? menu admin : menu usuario
-                 */
                 const usuarioEncontrado = Usuario.listaUsuarios.find((el) => el.userName === userNameLogin);
                 if (usuarioEncontrado){
-                    (usuarioEncontrado).verificaAdmin? menuAdmin(userNameLogin) : menuUsuario(userNameLogin);
+                    (usuarioEncontrado).verificaAdmin? menuAdmin(usuarioEncontrado) : menuUsuario(usuarioEncontrado);
                 }
                 break;
             case 2:
