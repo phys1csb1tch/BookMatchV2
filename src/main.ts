@@ -58,8 +58,8 @@ const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "",
 // Livro.exibirAcervo();
 // acervo()
 // buscaAcervo();
-//menuUsuario("jadeusa");
 const novaLocacao = new Locacao (livro1, newUsuario)
-newUsuario.locacoesDoUsuario();
+menuUsuario(newUsuario);
+// newUsuario.locacoesDoUsuario();
 // console.log(novaLocacao.dataLocacao);
 // console.log(novaLocacao.previsaoDeDevolucao)
