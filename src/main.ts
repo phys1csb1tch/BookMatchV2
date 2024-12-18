@@ -61,3 +61,5 @@ const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "",
 //menuUsuario("jadeusa");
 const novaLocacao = new Locacao (livro1, newUsuario)
 newUsuario.locacoesDoUsuario();
+// console.log(novaLocacao.dataLocacao);
+// console.log(novaLocacao.previsaoDeDevolucao)

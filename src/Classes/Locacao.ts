@@ -16,19 +16,19 @@ export class Locacao {
         this._livro=livro;
         this._usuario=usuario;
         this._dataLocacao= new Date();
-        this._previsaoDevolucao = this._dataLocacao
+        this._previsaoDevolucao = new Date (this._dataLocacao) //Quando você usa setDate em this._previsaoDevolucao, a alteração também afeta this._dataLocacao, porque ambas variáveis referenciam o mesmo objeto.
         this._previsaoDevolucao.setDate(this._dataLocacao.getDate()+14) // aparentemente preciso iniciar "previsao devolucao" antes de fazer alterações nela
         this._dataDevolucao=null;
         if (this._livro._disponivel){
             Locacao.listaLocacoes.push(this)
             console.log("Locação registrada com sucesso.")
             this._livro.disponivel=false;
-            console.log("O usuário tem 14 dias (2 semanas) para realizar a devolução.")
-            console.log(`Data de devolução: ${this._previsaoDevolucao.toLocaleDateString()}`)
-        } else {
-            console.log("Este livro já está locado.")
         }
          // acho que aqui eu inicio uma verificação do status do livro 
+    }
+
+    exibirLocacao(){
+
     }
 
     get usuario (): Usuario{
@@ -63,8 +63,6 @@ export class Locacao {
     get dataDevolucao(): string | undefined{
         if (this._dataDevolucao){
             return this._dataDevolucao.toLocaleDateString();
-        } else {
-            console.log ("Livro ainda não foi devolvido.")
         }
     }
 

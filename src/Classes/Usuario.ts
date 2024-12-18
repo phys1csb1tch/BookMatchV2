@@ -131,7 +131,7 @@ export class Usuario {
             console.log(`Livro: ${locacao.livro.nomeLivro}`)
             console.log(`Data de locação: ${locacao.dataLocacao.toLocaleDateString()}`)
             console.log(`Previsão de devolução: ${locacao.previsaoDeDevolucao.toLocaleDateString()}`)
-            console.log(`Data de devolução: ${locacao.dataDevolucao}`)
+            console.log(`Data de devolução: ${locacao.dataDevolucao? locacao.dataDevolucao : "Livro ainda não devolvido."}`)
             }
             )
         } else {
