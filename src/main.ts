@@ -3,9 +3,9 @@ import { Admin } from "./Classes/Admin";
 import { Genero } from "./Classes/Genero";
 import promptSync from "prompt-sync";
 import { Livro } from "./Classes/Livro";
+import { Locacao } from "./Classes/Locacao";
 import { menuVisitante } from "./menus/menuVisitante";
 import { menuUsuario } from "./menus/menuUsuario";
-import { minhaContaUsuario } from "./utils/minhaContaUsuario";
 // import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
@@ -45,6 +45,11 @@ const livro10 = new Livro("O Corvo", "Edgar Allan Poe", [generoTerror], "", "", 
 const livro11 = new Livro("A Comédia Humana", "Honoré de Balzac", [generoComedia], "", "", new Date(1842, 3, 1));
 const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "", new Date(2007, 2, 1));
 
+
+//----------------INSTANCIANDO LOCACOES---------------
+
+
+
 //menuVisitante();
 // Usuario.listaUsuarios.forEach((el) => console.log(el))
 // -------------- TESTES -------------------
@@ -54,4 +59,5 @@ const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "",
 // acervo()
 // buscaAcervo();
 //menuUsuario("jadeusa");
-minhaContaUsuario("jadeusa")
+const novaLocacao = new Locacao (livro1, newUsuario)
+newUsuario.locacoesDoUsuario();

@@ -1,4 +1,4 @@
-
+import { Locacao } from "./Locacao";
 export class Usuario {
     protected _verificaAdmin: boolean = false; // verificador de se o Usuário é admin ou não
     static listaUsuarios: Usuario[]=[]; // Array que armazena os usuários
@@ -120,5 +120,28 @@ export class Usuario {
 
     set senha (novaSenha: string){
         this._senha=novaSenha;
+    }
+
+    locacoesDoUsuario (){
+        let listaLocacoes = Locacao.listaLocacoes.filter((el) => el.usuario === this) // filter sempre retorna true se testado, pois sempre gera um array, ainda que vazio
+        if (listaLocacoes.length >0){
+            console.log(`Locações do Usuário ${this.nome}:`) // aqui preciso adicionar uma visualização pra cada elemento no array
+            listaLocacoes.forEach((locacao) => {
+            console.log(`ID de locação: ${locacao.idLocacao}`)
+            console.log(`Livro: ${locacao.livro.nomeLivro}`)
+            console.log(`Data de locação: ${locacao.dataLocacao.toLocaleDateString()}`)
+            console.log(`Previsão de devolução: ${locacao.previsaoDeDevolucao.toLocaleDateString()}`)
+            console.log(`Data de devolução: ${locacao.dataDevolucao}`)
+            }
+            )
+        } else {
+            console.log("Nenhuma locação registrada para este usuário.")
+        } // aqui ele tá retornando a lista literalmente; tenho que pensar em uma forma de formatar esse retorno de forma que se torne legível pra humanos
+        // Locaco: id locacao
+        // livro: nome
+        // Usuario: nome
+        // Locacao: data de locação
+        //Locacao: previsão de devolução
+        // Locacao: Data de devolução
     }
 }

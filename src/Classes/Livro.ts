@@ -1,25 +1,26 @@
 import { Genero } from "./Genero";
+import { Locacao } from "./Locacao";
 
 export class Livro {
     protected static contadorID : number = 0;
     protected idLivro: number;
-    protected nomeLivro: string;
+    protected _nomeLivro: string;
     protected autor: string;
     protected generos: Genero[];
     protected editora: string;
     protected edicao: string;
-    protected disponivel: boolean;
+    public _disponivel: boolean;
     protected dataPublicacao: Date;
     static listaLivros: Livro[]=[];
 
     constructor (nomeLivro: string, autor: string, generos: Genero[], editora: string, edicao: string, dataPublicacao: Date){
         this.idLivro = Livro.contadorID++;
-        this.nomeLivro = nomeLivro;
+        this._nomeLivro = nomeLivro;
         this.autor=autor;
         this.generos=generos;
         this.editora=editora;
         this.edicao=edicao;
-        this.disponivel=true;
+        this._disponivel=true;
         this.dataPublicacao=dataPublicacao;
         Livro.listaLivros.push(this)
     }
@@ -45,6 +46,18 @@ export class Livro {
     static procuraLivroGenero (genero: string): string[]{
         const normalizado = genero.toLowerCase().trim();
         return Livro.listaLivros.filter((el) => el.generos.some((g) => g.nomeGenero.toLowerCase().includes(normalizado))).map((el) => Livro.exibirLivro(el))
+    }
+
+    get disponivel(): boolean{
+        return this._disponivel
+    }
+
+    set disponivel(disponivel: boolean){
+        this._disponivel=disponivel;
+    }
+
+    get nomeLivro (): string{
+        return this._nomeLivro
     }
 
 }
