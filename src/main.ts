@@ -6,6 +6,7 @@ import { Livro } from "./Classes/Livro";
 import { Locacao } from "./Classes/Locacao";
 import { menuVisitante } from "./menus/menuVisitante";
 import { menuUsuario } from "./menus/menuUsuario";
+import { menuAdmin } from "./menus/menuAdmin";
 // import { acervo, buscaAcervo } from "./utils/acervo";
 const prompt = promptSync();
 
@@ -58,8 +59,12 @@ const livro12 = new Livro("A Cabana", "William P. Young", [generoDrama], "", "",
 // Livro.exibirAcervo();
 // acervo()
 // buscaAcervo();
-const novaLocacao = new Locacao (livro1, newUsuario)
-menuUsuario(newUsuario);
+// const novaLocacao = new Locacao (livro1, newUsuario)
+// menuUsuario(newUsuario);
 // newUsuario.locacoesDoUsuario();
 // console.log(novaLocacao.dataLocacao);
 // console.log(novaLocacao.previsaoDeDevolucao)
+// menuAdmin(newAdmin)
+
+
+/**TESTAR: BUSCA POR DISPONIBILIDADE */

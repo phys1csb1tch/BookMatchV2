@@ -1,3 +1,4 @@
+import test from "node:test";
 import { Locacao } from "./Locacao";
 export class Usuario {
     protected _verificaAdmin: boolean = false; // verificador de se o Usuário é admin ou não
@@ -69,20 +70,16 @@ export class Usuario {
         this._nome=novoNome
     }
     set userName (novoUserName: string){
-        if (!this.procuraUserName){
+        if (!Usuario.procuraUserName){
             this._userName=novoUserName
         } else {
             console.log("Nome de usuário já cadastrado no sistema.")
         }
     }
 
-    procuraUserName(username:string): boolean {
+    static procuraUserName(username:string): boolean {
         const testeUsername= Usuario.listaUsuarios.find((el) => el._userName === username)
-        if(testeUsername) {
-            return true
-        } else {
-            return false
-        }
+        return !!testeUsername
     }
 
     get endereco(): string{
@@ -98,20 +95,26 @@ export class Usuario {
     }
 
     set cpf (novoCPF: string){
-        if (!this.procuraCPF){
+        if (!Usuario.procuraCPF){
             this._cpf=novoCPF
         } else {
             console.log("CPF já cadastrado no sistema.")
         }
     }
 
-    procuraCPF(CPF:string): boolean {
+   static procuraCPF(CPF:string): boolean {
         const testeCPF= Usuario.listaUsuarios.find((el) => el._cpf === CPF)
-        if(testeCPF) {
-            return true
-        } else {
-            return false
-        }
+        return !! testeCPF
+    }
+
+    static procuraID(ID: number): boolean {
+        const testeID=Usuario.listaUsuarios.find((el) => el.id === ID)
+        return !!testeID; //  retorna true se encontrado, false se não encontrado
+    }
+
+    static procuraNome(nome: string): boolean {
+        const testeNome=Usuario.listaUsuarios.find((el) => el.nome === nome)
+        return !!testeNome
     }
 
     get senha (): string{
@@ -136,12 +139,6 @@ export class Usuario {
             )
         } else {
             console.log("Nenhuma locação registrada para este usuário.")
-        } // aqui ele tá retornando a lista literalmente; tenho que pensar em uma forma de formatar esse retorno de forma que se torne legível pra humanos
-        // Locaco: id locacao
-        // livro: nome
-        // Usuario: nome
-        // Locacao: data de locação
-        //Locacao: previsão de devolução
-        // Locacao: Data de devolução
+        } 
     }
 }

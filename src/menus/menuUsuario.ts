@@ -1,7 +1,6 @@
 import promptSync from "prompt-sync";
 import { acervo } from "../utils/acervo";
 import { Usuario } from "../Classes/Usuario";
-import { Locacao } from "../Classes/Locacao";
 
 export function menuUsuario(usuario: Usuario){
     

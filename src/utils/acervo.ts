@@ -91,18 +91,32 @@ export function buscaAcervo(){
                 }
                 break;
             case 4:
+                console.log("Busca por disponibilidade")
+                console.log("1. Procurar somente livros disponíveis")
+                console.log("2. Procurar somente livros locados")
+                let opcao = prompt(`Digite sua opção: `)    
+                
+                if (opcao ==="1" ){
+                    let busca = true
+                    Livro.procuraLivroStatus(busca)
+                } else if (opcao ==="2") {
+                    let busca = false
+                    Livro.procuraLivroStatus(busca)
+                } else {
+                    console.log("Opção inválida.")
+                }
+
+                
+            // pesquisa por disponibilidade
+                break;
+            case 5:
                 console.log("Saindo...");
                 controle = false;
                 break;
+                
             default:
-                console.log("Opção inválida.")
-                break;
+            console.log("Opção inválida.")
+            break;
         }
     }
 }
-/////// MENU DE BUSCA
-/** por nome
- * por genero
- * por autor
- * 
- */

@@ -1,5 +1,4 @@
 import { Genero } from "./Genero";
-import { Locacao } from "./Locacao";
 
 export class Livro {
     protected static contadorID : number = 0;
@@ -46,6 +45,10 @@ export class Livro {
     static procuraLivroGenero (genero: string): string[]{
         const normalizado = genero.toLowerCase().trim();
         return Livro.listaLivros.filter((el) => el.generos.some((g) => g.nomeGenero.toLowerCase().includes(normalizado))).map((el) => Livro.exibirLivro(el))
+    }
+
+    static procuraLivroStatus (status: boolean): string[]{
+        return Livro.listaLivros.filter((el) => el.disponivel === status).map((el) => Livro.exibirLivro(el))
     }
 
     get disponivel(): boolean{
